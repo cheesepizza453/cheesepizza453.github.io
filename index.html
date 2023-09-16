@@ -1,1 +1,42 @@
-Hello World
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노마드 바닐라JS 챌린지</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+  </head>
+  <body>
+    <div class="main_wrapper">
+      <div class="login_area blue">
+        <div class="inner">
+          <h1>
+            WHAT'S<br />
+            YOUR NAME?
+          </h1>
+          <div class="input_area">
+            <input type="text" id="username" name="username" required maxlength="20" />
+          </div>
+          <div class="input_area">
+            <button id="login_btn" type="submit">JOIN</button>
+          </div>
+        </div>
+        <div class="element_area">
+          <div class="inner bg_el_cont">
+            <img class="el1" src="./assets/imgs/bl_1.png" alt="배경이미지 요소1" />
+            <img class="el2" src="./assets/imgs/bl_2.png" alt="배경이미지 요소2" />
+            <img class="el3" src="./assets/imgs/bl_3.png" alt="배경이미지 요소3" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>
