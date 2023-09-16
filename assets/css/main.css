@@ -1,0 +1,161 @@
+.main_wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.main_wrapper .login_area {
+  position: relative;
+  width: 70vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15vw;
+}
+
+.login_area .hello_text {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.login_area.blue .hello_text {
+  color: #2f59df;
+}
+
+.login_area.purple .hello_text {
+  color: #6a68ef;
+}
+
+.login_area .inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 40%;
+  height: 100%;
+}
+
+.login_area h1 {
+  font-size: 2.8vw;
+  font-weight: 900;
+  line-height: 1.15;
+  transition: color 0.2s ease-in;
+}
+
+.login_area.blue h1 {
+  color: #2f59df;
+}
+
+.login_area.purple h1 {
+  color: #6a68ef;
+}
+
+.input_area {
+  margin-top: 25px;
+}
+
+.input_area input {
+  width: 24vw;
+  height: 3.3vw;
+  border: 1px solid #888;
+  padding-left: 1vw;
+  font-size: 1.8vw;
+}
+
+.input_area input:focus {
+  outline: none;
+}
+
+.input_area button {
+  width: 24vw;
+  height: 4.5vw;
+  color: #fff;
+  font-size: 1.2vw;
+  border: none;
+  font-weight: 200;
+  transition: background 0.2s ease-in;
+  cursor: pointer;
+}
+
+.login_area.blue button {
+  background: #4773ff;
+}
+
+.input_area.blue button:hover {
+  background: #2f59df;
+}
+
+.login_area.purple button {
+  background: #8a8af3;
+}
+
+.input_area.purple button:hover {
+  background: #6a68ef;
+}
+
+.element_area {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+
+.element_area .inner {
+  position: relative;
+  width: 100%;
+  height: 60%;
+}
+.element_area .el1 {
+  position: absolute;
+  width: 18vw;
+  top: 2vw;
+  left: 4vw;
+  animation: el1 8s infinite;
+}
+
+.element_area .el2 {
+  position: absolute;
+  width: 10vw;
+  top: 7vw;
+  left: 30vw;
+  animation: el2 6.2s infinite;
+}
+
+.element_area .el3 {
+  position: absolute;
+  width: 10vw;
+  top: 18vw;
+  left: 15vw;
+  animation: el3 6.9s infinite;
+}
+
+@keyframes el1 {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(0.98) rotate(-3deg);
+  }
+}
+
+@keyframes el2 {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(0.95) rotate(7deg);
+  }
+}
+
+@keyframes el3 {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(0.95) rotate(-5deg);
+  }
+}

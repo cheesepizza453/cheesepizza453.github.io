@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>노마드 바닐라JS 챌린지</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/todo.css" />
+  </head>
+  <body>
+    <div class="main_wrapper">
+      <div class="input_wrapper">
+        <input id="todoInput" type="text" maxlength="10" />
+        <button id="todoBtn" type="button">고</button>
+      </div>
+      <div class="bg_wrapper">
+        <div class="bg_container"></div>
+      </div>
+      <article class="todo_wrapper">
+        <ul class="todo_cont"></ul>
+      </article>
+      <div class="bottom_wrapper">
+        <div class="inner">
+          <div class="hello_area"><h1 id="helloText" class="title">오늘의 할 일</h1></div>
+          <div class="clock_area">
+            <p id="clock"></p>
+            <p id="weather">weather</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./assets/js/todo.js"></script>
+  </body>
+</html>
