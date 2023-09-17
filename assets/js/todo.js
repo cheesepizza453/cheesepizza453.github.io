@@ -6,23 +6,58 @@ const toDoArea = document.querySelector(".todo_cont");
 const toDoList = document.querySelectorAll(".list");
 const toDoInput = document.getElementById("todoInput");
 const toDoBtn = document.getElementById("todoBtn");
-let num = 1;
-let todoText;
-
 const TODOS_KEY = "toDoList";
+let localNum;
+let todoText;
 let toDos = [];
-const deletedToDoNum = [];
 
-function saveToDos() {
-  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+const storedNumValue = localStorage.getItem("listNum");
+localNum = !isNaN(storedNumValue) ? parseInt(storedNumValue, 10) : 1;
+localStorage.setItem("listNum", localNum); // 이미 정수로 초기화한 localNum을 설정합니다.
+
+function handelToDoSubmit() {
+  if (localNum <= 12) {
+    const newTodo = toDoInput.value;
+
+    if (newTodo.length === 0) {
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
+    toDoInput.value = "";
+    const newTodoObj = {
+      text: newTodo,
+      id: `list${localNum}`,
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
+    saveToDos();
+    localStorage.setItem("listNum", parseInt(localNum) + 1);
+    localNum += 1;
+  } else {
+    alert("할 일이 너무 많아요.");
+  }
 }
 
 function deleteTodo(event) {
   const li = event.target.parentElement;
-  li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-  saveToDos();
-  num -= 1;
+  if (localNum > 0) {
+    localStorage.setItem("listNum", parseInt(localNum) - 1);
+    localNum -= 1;
+
+    li.remove();
+    toDos = toDos.filter((toDo) => {
+      console.log(toDo.id, li.id, parseInt(li.id));
+      return toDo.id !== li.id;
+    });
+
+    saveToDos();
+  }
+}
+
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  console.log(toDos);
 }
 
 function paintToDo(newTodo) {
@@ -38,28 +73,6 @@ function paintToDo(newTodo) {
   li.appendChild(span);
   li.appendChild(button);
   toDoArea.appendChild(li);
-}
-
-function handelToDoSubmit() {
-  const toDoNum = saveToDos.length;
-
-  for (let i = 0; i < toDoNum; i++) {}
-
-  if (num <= 12) {
-    const newTodo = toDoInput.value;
-    toDoInput.value = "";
-    const newTodoObj = {
-      text: newTodo,
-      id: `list${num}`,
-      num: num,
-    };
-    toDos.push(newTodoObj);
-    paintToDo(newTodoObj);
-    saveToDos();
-    num += 1;
-  } else {
-    alert("할 일이 너무 많아요.");
-  }
 }
 
 toDoBtn.addEventListener("click", handelToDoSubmit);
@@ -129,3 +142,4 @@ window.addEventListener("load", () => {
 });
 
 // localStorage.removeItem(TODOS_KEY);
+// localStorage.removeItem("listNum");
